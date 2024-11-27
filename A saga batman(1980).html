@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leitor de HQ com Navbar Responsiva</title>
+    <link rel="stylesheet" href="styleler.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.min.js"></script>
+</head>
+<body>
+
+    <!-- Tela de Loading -->
+    <div id="loader" class="loader">
+        <div class="book-wrapper">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 126 75" class="book">
+                <rect stroke-width="5" stroke="#e05452" rx="7.5" height="70" width="121" y="2.5" x="2.5"></rect>
+                <line stroke-width="5" stroke="#e05452" y2="75" x2="63.5" x1="63.5"></line>
+                <path stroke-linecap="round" stroke-width="4" stroke="#c18949" d="M25 20H50"></path>
+                <path stroke-linecap="round" stroke-width="4" stroke="#c18949" d="M101 20H76"></path>
+                <path stroke-linecap="round" stroke-width="4" stroke="#c18949" d="M16 30L50 30"></path>
+                <path stroke-linecap="round" stroke-width="4" stroke="#c18949" d="M110 30L76 30"></path>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="#ffffff74" viewBox="0 0 65 75" class="book-page">
+                <path stroke-linecap="round" stroke-width="4" stroke="#c18949" d="M40 20H15"></path>
+                <path stroke-linecap="round" stroke-width="4" stroke="#c18949" d="M49 30L15 30"></path>
+                <path stroke-width="5" stroke="#e05452" d="M2.5 2.5H55C59.1421 2.5 62.5 5.85786 62.5 10V65C62.5 69.1421 59.1421 72.5 55 72.5H2.5V2.5Z"></path>
+            </svg>
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener('load', function() {
+            document.getElementById('loader').style.display = 'none';
+            document.querySelector('.hq-container').style.display = 'block'; // Garanta que o conteúdo apareça
+        });
+    </script>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="Ler.html">Ler</a></li>
+            <li><a href="Comprar.html">Comprar</a></li>
+            <li><a href="blog.html">Blog</a></li>
+        </ul>
+    </nav>
+
+    <div class="toggle-switch">
+        <label class="switch-label">
+            <input type="checkbox" class="checkbox" id="themeSwitcher">
+            <span class="slider"></span>
+        </label>
+    </div>
+    
+    <script>
+        const checkbox = document.getElementById('themeSwitcher');
+        const body = document.body;
+
+        // Verifica o tema armazenado no localStorage
+        if (localStorage.getItem('theme') === 'light') {
+            body.classList.add('light-mode');
+            checkbox.checked = true;
+        }
+
+        // Evento de mudança no checkbox
+        checkbox.addEventListener('change', function() {
+            if (checkbox.checked) {
+                body.classList.add('light-mode');
+                localStorage.setItem('theme', 'light');
+            } else {
+                body.classList.remove('light-mode');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+    </script>
+        
+    <div class="hq-container" id="ler" style="display: none;">
+        <header>
+            <h1>A Saga Do Batman(1980)</h1>
+        </header>
+
+        <div class="volume-selection">
+            <button onclick="loadPDF('')">Volume 1</button>
+            <button onclick="loadPDF('')">Volume 2</button>
+            <button onclick="loadPDF('')">Volume 3</button>
+        </div>
+
+        <div id="pdf-container">
+            <canvas id="pdf-canvas"></canvas>
+        </div>
+
+        <div class="navigation">
+            <button onclick="navigate(-1)">Anterior</button>
+            <button onclick="navigate(1)">Próximo</button>
+        </div>
+
+        <div class="zoom-controls">
+            <button onclick="zoomIn()">+</button>
+            <button onclick="zoomOut()">-</button>
+        </div>
+    </div>
+
+    <script>
+        let currentPage = 1;
+        let pdfDoc = null;
+        let totalPages = 0;
+        let scale = 1.5;
+        const maxScale = 5.0;
+        const minScale = 0.5;
+
+        function loadPDF(pdfUrl) {
+            pdfjsLib.getDocument(pdfUrl).promise.then(function (pdf) {
+                pdfDoc = pdf;
+                totalPages = pdfDoc.numPages;
+                currentPage = 1;
+                renderPage(currentPage);
+            });
+        }
+
+        function renderPage(pageNum) {
+            pdfDoc.getPage(pageNum).then(function (page) {
+                let canvas = document.getElementById('pdf-canvas');
+                let ctx = canvas.getContext('2d');
+
+                let viewport = page.getViewport({ scale: scale });
+
+                canvas.height = viewport.height;
+                canvas.width = viewport.width;
+
+                page.render({
+                    canvasContext: ctx,
+                    viewport: viewport
+                });
+            });
+        }
+
+        function navigate(direction) {
+            currentPage += direction;
+
+            if (currentPage < 1) currentPage = 1;
+            if (currentPage > totalPages) currentPage = totalPages;
+
+            renderPage(currentPage);
+        }
+
+        function zoomIn() {
+            if (scale < maxScale) {
+                scale += 0.5;
+                renderPage(currentPage);
+            }
+        }
+
+        function zoomOut() {
+            if (scale > minScale) {
+                scale -= 0.5;
+                renderPage(currentPage);
+            }
+        }
+    </script>
+</body>
+</html>

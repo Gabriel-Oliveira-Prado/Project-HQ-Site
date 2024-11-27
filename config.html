@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configurações</title>
+    <meta name="author" content="Gabriel">
+    <link rel="stylesheet" href="styleconfig.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel='https://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Configurações</h2>
+        <a href="#" data-section="perfil" class="menu-item active">Perfil do Usuário</a>
+        <a href="#" data-section="preferencias-leitura" class="menu-item">Preferências de Leitura</a>
+        <a href="#" data-section="pagamento" class="menu-item">Métodos de Pagamento</a>
+        <a href="#" data-section="endereco" class="menu-item">Endereço de Entrega</a>
+        <a href="#" data-section="historico-compras" class="menu-item">Histórico de Compras</a>
+        <a href="#" data-section="notificacoes" class="menu-item">Notificações</a>
+        <a href="#" data-section="privacidade" class="menu-item">Privacidade</a>
+        <a href="#" data-section="suporte" class="menu-item">Suporte</a>
+        <a href="#" data-section="biblioteca" class="menu-item">Biblioteca Pessoal</a>
+        <a href="#" data-section="assinaturas" class="menu-item">Assinaturas</a>
+        <a href="#" data-section="seguranca" class="menu-item">Segurança</a>
+        <a href="#" data-section="Idiomas" class="menu-item">Idiomas</a>
+        <a href="#" data-section="historico-leitura" class="menu-item">Histórico de Leitura</a>
+        <a href="#" data-section="offline" class="menu-item">Download Offline</a>
+        <a href="#" data-section="termos" class="menu-item">Termos e Políticas</a>
+        <a href="#" data-section="exclusao" class="menu-item">Exclusão de Conta</a>
+    </div>
+    <main>
+        <div id="perfil" class="section active">
+            <h1>Perfil do Usuário</h1>
+            <p>Alterar nome, e-mail e senha.</p>
+        
+            <form id="perfilForm">
+                <div class="mb-3">
+                    <label for="nome" class="form-label">Nome</label>
+                    <input type="text" class="form-control" id="nome" placeholder="Digite seu nome" required>
+                </div>
+        
+                <div class="mb-3">
+                    <label for="email" class="form-label">E-mail</label>
+                    <input type="email" class="form-control" id="email" placeholder="Digite seu e-mail" required>
+                </div>
+        
+                <div class="mb-3">
+                    <label for="senha" class="form-label">Senha</label>
+                    <input type="password" class="form-control" id="senha" placeholder="Digite sua senha" required>
+                </div>
+        
+                <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+            </form>
+        </div>
+
+        <div id="preferencias-leitura" class="section">
+            <h1>Preferências de Leitura</h1>
+            <p>Modo claro/escuro.</p>
+            
+            <div class="mode-toggle">
+                <label for="modo">Modo Claro/Escuro</label>
+                <input type="checkbox" id="modo" class="form-check-input">
+            </div>
+        </div>
+
+        <div id="pagamento" class="section">
+            <h1>Métodos de Pagamento</h1>
+            <p>Gerenciar cartões ou Pix.</p>
+
+            <form id="pagamentoForm">
+                <div class="mb-3">
+                    <label for="cartao" class="form-label">Número do Cartão</label>
+                    <input type="text" class="form-control" id="cartao" placeholder="Digite o número do cartão" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="expiracao" class="form-label">Data de Expiração</label>
+                    <input type="month" class="form-control" id="expiracao" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="cvc" class="form-label">Código de Segurança (CVC)</label>
+                    <input type="text" class="form-control" id="cvc" placeholder="Código de 3 dígitos" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="metodo" class="form-label">Método de Pagamento</label>
+                    <select class="form-control" id="metodo">
+                        <option value="cartao">Cartão de Crédito</option>
+                        <option value="pix">Pix</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+            </form>
+        </div>
+
+        <div id="endereco" class="section">
+            <h1>Endereço de Entrega</h1>
+            <p>Editar ou adicionar.</p>
+
+            <form id="enderecoForm">
+                <div class="mb-3">
+                    <label for="rua" class="form-label">Rua</label>
+                    <input type="text" class="form-control" id="rua" placeholder="Digite a rua" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="numero" class="form-label">Número</label>
+                    <input type="text" class="form-control" id="numero" placeholder="Digite o número da casa/apartamento" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="bairro" class="form-label">Bairro</label>
+                    <input type="text" class="form-control" id="bairro" placeholder="Digite o bairro" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="cidade" class="form-label">Cidade</label>
+                    <input type="text" class="form-control" id="cidade" placeholder="Digite a cidade" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="estado" class="form-label">Estado</label>
+                    <input type="text" class="form-control" id="estado" placeholder="Digite o estado" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="cep" class="form-label">CEP</label>
+                    <input type="text" class="form-control" id="cep" placeholder="Digite o CEP" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+            </form>
+        </div>
+
+        <div id="historico-compras" class="section">
+            <h1>Histórico de Compras</h1>
+            <p>Acessar recibos e HQs compradas.</p>
+
+            <div class="historico">
+                <table class="table">
+                    <thead>
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+        <div id="notificacoes" class="section">
+            <h1>Notificações</h1>
+            <p>Configurar alertas de promoções ou atualizações.</p>
+    
+    <form id="notificacoesForm">
+        <div class="mb-3">
+            <label for="promoAlert" class="form-label">Alertas de Promoções</label>
+            <select class="form-control" id="promoAlert">
+                <option value="todos">Todos os alertas</option>
+                <option value="novidades">Somente novidades</option>
+                <option value="nada">Não receber alertas</option>
+            </select>
+        </div>
+        
+        <div class="mb-3">
+            <label for="updateAlert" class="form-label">Alertas de Atualizações</label>
+            <select class="form-control" id="updateAlert">
+                <option value="todos">Todos os alertas</option>
+                <option value="importantes">Somente atualizações importantes</option>
+                <option value="nada">Não receber alertas</option>
+            </select>
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+    </form>
+</div>
+
+<div id="privacidade" class="section">
+    <h1>Privacidade</h1>
+    <p>Controle de dados e permissões.</p>
+    
+    <form id="privacidadeForm">
+        <div class="mb-3">
+            <label for="dataSharing" class="form-label">Compartilhamento de Dados</label>
+            <select class="form-control" id="dataSharing">
+                <option value="todos">Compartilhar com todos os parceiros</option>
+                <option value="parcial">Compartilhar apenas com alguns parceiros</option>
+                <option value="nenhum">Não compartilhar dados</option>
+            </select>
+        </div>
+        
+        <div class="mb-3">
+            <label for="adTracking" class="form-label">Rastreamento de Anúncios</label>
+            <select class="form-control" id="adTracking">
+                <option value="ativado">Ativar rastreamento de anúncios</option>
+                <option value="desativado">Desativar rastreamento de anúncios</option>
+            </select>
+        </div>
+        
+        <div class="mb-3">
+            <label for="dataRetention" class="form-label">Retenção de Dados</label>
+            <select class="form-control" id="dataRetention">
+                <option value="indefinido">Reter dados indefinidamente</option>
+                <option value="30dias">Reter por 30 dias</option>
+                <option value="60dias">Reter por 60 dias</option>
+                <option value="90dias">Reter por 90 dias</option>
+            </select>
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+    </form>
+</div>
+
+<div id="suporte" class="section">
+    <h1>Suporte</h1>
+    <p>Link para ajuda ou contato.</p>
+    
+    <form id="suporteForm">
+        <div class="mb-3">
+            <label for="assunto" class="form-label">Assunto</label>
+            <select class="form-control" id="assunto">
+                <option value="conta">Problemas com a conta</option>
+                <option value="pagamento">Problemas de pagamento</option>
+                <option value="tecnico">Problemas técnicos</option>
+                <option value="geral">Dúvidas gerais</option>
+            </select>
+        </div>
+        
+        <div class="mb-3">
+            <label for="mensagem" class="form-label">Mensagem</label>
+            <textarea class="form-control" id="mensagem" rows="4" placeholder="Descreva seu problema ou dúvida..." required></textarea>
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Enviar Solicitação</button>
+    </form>
+</div>
+
+<div id="biblioteca" class="section">
+    <h1>Biblioteca Pessoal</h1>
+    <p>Organizar HQs compradas ou favoritas.</p>
+    
+    <div class="biblioteca-lista">
+        <h2>HQs Compradas</h2>
+        <ul>
+            <li>
+                <strong>Título da HQ 1</strong> - <em>Autor 1</em>
+                <button class="btn btn-success">Marcar como Favorita</button>
+            </li>
+            <li>
+                <strong>Título da HQ 2</strong> - <em>Autor 2</em>
+                <button class="btn btn-success">Marcar como Favorita</button>
+            </li>
+            <li>
+                <strong>Título da HQ 3</strong> - <em>Autor 3</em>
+                <button class="btn btn-success">Marcar como Favorita</button>
+            </li>
+        </ul>
+    </div>
+    
+    <h3>HQs Favoritas</h3>
+    <ul class="favoritas-lista">
+        <li>
+            <strong>Título da HQ Favorita</strong> - <em>Autor</em>
+            <button class="btn btn-danger">Remover da Favorita</button>
+        </li>
+    </ul>
+</div>
+
+<div id="assinaturas" class="section">
+    <h1>Assinaturas</h1>
+    <p>Gerenciar planos ou serviços premium.</p>
+    
+    <div class="assinaturas-lista">
+        <h2>Meus Planos Ativos</h2>
+        <ul>
+            <li>
+                <strong>Plano Premium</strong>
+                <button class="btn btn-warning">Renovar</button>
+                <button class="btn btn-danger">Cancelar Assinatura</button>
+            </li>
+            <li>
+                <strong>Plano Básico</strong>
+                <button class="btn btn-warning">Renovar</button>
+                <button class="btn btn-danger">Cancelar Assinatura</button>
+            </li>
+        </ul>
+    </div>
+    
+    <h3>Assinaturas Expiradas</h3>
+    <ul class="expiradas-lista"></ul>
+</div>
+
+<div id="seguranca" class="section">
+    <h1>Segurança</h1>
+    <p>Ativar autenticação em dois fatores.</p>
+
+    <div class="seguranca-opcoes">
+        <h2>Autenticação em Dois Fatores</h2>
+        <p>Ative a autenticação em dois fatores para aumentar a segurança da sua conta.</p>
+        <button class="btn btn-success">Ativar Autenticação</button>
+        <button class="btn btn-danger">Desativar Autenticação</button>
+    </div>
+</div>
+
+<div id="Idiomas" class="section">
+    <h1>Idiomas</h1>
+    <p>Selecionar idioma do site.</p>
+
+    <div class="idiomas-opcoes">
+        <label for="idioma">Escolha o idioma:</label>
+        <select id="idioma" class="form-control">
+            <option value="portugues">Português</option>
+            <option value="ingles">Inglês</option>
+            <option value="espanhol">Espanhol</option>
+            <option value="frances">Francês</option>
+            <option value="alemao">Alemão</option>
+        </select>
+        <button class="btn btn-primary">Salvar Preferência</button>
+    </div>
+</div>
+
+<div id="historico-leitura" class="section">
+    <h1>Histórico de Leitura</h1>
+    <p>Acompanhar progresso em HQs.</p>
+
+    <div class="historico-lista">
+        <h2>Progresso das HQs</h2>
+        <ul>
+            <li>
+                <strong>HQ</strong> - <span>Capítulo 3/10 lido</span>
+                <button class="btn btn-info">Continuar Leitura</button>
+            </li>
+            <li>
+                <strong>HQ</strong> - <span>Capítulo 5/7 lido</span>
+                <button class="btn btn-info">Continuar Leitura</button>
+            </li>
+        </ul>
+    </div>
+
+    <div class="historico-completo">
+        <h3>Histórico Completo</h3>
+        <ul>
+            <li><strong>HQ</strong> - Concluída</li>
+            <li><strong>HQ</strong> - Concluída</li>
+        </ul>
+    </div>
+</div>
+
+<div id="offline" class="section">
+    <h1>Download Offline</h1>
+    <p>Visualize as HQs baixadas para leitura offline.</p>
+
+    <div class="download-lista">
+        <h2>HQs Baixadas</h2>
+        <ul>
+            <li>
+                <strong>HQ</strong> - <span>Disponível Offline</span>
+                <button class="btn btn-info">Abrir</button>
+            </li>
+            <li>
+                <strong>HQ</strong> - <span>Disponível Offline</span>
+                <button class="btn btn-info">Abrir</button>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div id="termos" class="section">
+    <h1>Termos e Políticas</h1>
+    <p>Acesso rápido a documentos legais.</p>
+
+    <div class="documentos">
+        <ul>
+            <li><a href="#">Termos de Serviço</a></li>
+            <li><a href="#">Política de Privacidade</a></li>
+            <li><a href="#">Política de Cookies</a></li>
+            <li><a href="#">Termos de Uso</a></li>
+        </ul>
+    </div>
+</div>
+
+<div id="exclusao" class="section">
+    <h1>Exclusão de Conta</h1>
+    <p>Exclusão de Conta</p>
+    <p>Se você deseja excluir sua conta, por favor, confirme abaixo.</p>
+    <button class="btn-primary" onclick="confirmarExclusao()">Excluir Conta</button>
+</div>
+
+<!-- Card de confirmação -->
+<div id="confirmation-card" class="confirmation-card">
+    <div class="card">
+        <div class="card-header">
+            <h3>Confirmar Exclusão</h3>
+        </div>
+        <div class="card-body">
+            <p>Tem certeza de que deseja excluir sua conta?</p>
+            <button class="btn-primary" onclick="confirmarExclusaoFinal()">Sim, excluir</button>
+            <button class="btn-primary" onclick="cancelarExclusao()">Cancelar</button>
+        </div>
+    </div>
+</div>
+
+<script>
+// Função para mostrar o card de confirmação
+function confirmarExclusao() {
+    document.getElementById('confirmation-card').style.display = 'flex';
+}
+
+// Função para confirmar a exclusão e redirecionar
+function confirmarExclusaoFinal() {
+    // Aqui você pode adicionar o código para excluir a conta
+    // Após excluir a conta, redirecionar para a página inicial (index.html)
+    window.location.href = 'index.html';  // Redireciona para a página inicial
+}
+
+// Função para cancelar e fechar o card
+function cancelarExclusao() {
+    document.getElementById('confirmation-card').style.display = 'none';
+}
+
+</script>
+
+
+    </main>
+
+    <script>
+        const menuItems = document.querySelectorAll('.menu-item');
+        const sections = document.querySelectorAll('.section');
+        const modoToggle = document.getElementById('modo');
+        const body = document.body;
+
+        modoToggle.addEventListener('change', () => {
+            if (modoToggle.checked) {
+                body.classList.add('dark-mode');
+            } else {
+                body.classList.remove('dark-mode');
+            }
+        });
+
+        menuItems.forEach(item => {
+            item.addEventListener('click', (e) => {
+                e.preventDefault();
+
+                menuItems.forEach(link => link.classList.remove('active'));
+                sections.forEach(section => section.classList.remove('active'));
+
+                item.classList.add('active');
+                document.getElementById(item.dataset.section).classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

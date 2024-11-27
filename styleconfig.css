@@ -1,0 +1,145 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+.sidebar {
+    width: 200px;
+    height: 100vh;
+    background: rgba(52, 58, 64, 0.9) url('Imagem/imagembarhqconfig.png') no-repeat center center;
+    background-size: cover;
+    color: rgb(0, 0, 0);
+    position: fixed;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.sidebar h2 {
+    font-size: 18px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+}
+
+.sidebar a {
+    display: block;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    margin: 10px 0;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.sidebar a:hover {
+    background-color: #0080ff;
+}
+
+.sidebar a.active {
+    background-color: #f1f50a;
+    font-weight: bold;
+}
+
+main {
+    margin-left: 270px;
+    padding: 20px;
+}
+
+.section {
+    display: none;
+}
+
+.section.active {
+    display: block;
+}
+
+.mode-toggle {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.mode-toggle label {
+    margin-right: 10px;
+}
+
+.mb-3 {
+    margin-bottom: 15px;
+}
+
+.form-label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.confirmation-card {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 9999; /* Para garantir que fique acima de outros elementos */
+    display: none; /* Inicialmente escondido */
+}
+
+.card-header {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.card-body {
+    text-align: center;
+}
+
+.card-body p {
+    margin-bottom: 20px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
